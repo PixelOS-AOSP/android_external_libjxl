@@ -16,6 +16,7 @@ license {
 
 cc_library {
     name: "libjxl",
+    host_supported: true,
     cflags: [
         "-DJPEGXL_ENABLE_SKCMS=1",
     ],
@@ -32,22 +33,19 @@ cc_library {
         "gen/include",
     ],
     srcs: [
-        // TODO: Enable in main when necessary dependencies are available
-        // ":libjxl_dec_sources",
-        // ":libjxl_dec_box_sources",
-        // ":libjxl_dec_jpeg_sources",
-        // ":libjxl_enc_sources",
-        // ":libjxl_threads_sources",
-        // "lib/jxl/cms/jxl_cms.cc",
+        ":libjxl_dec_sources",
+        ":libjxl_dec_box_sources",
+        ":libjxl_dec_jpeg_sources",
+        ":libjxl_enc_sources",
+        ":libjxl_threads_sources",
+        "lib/jxl/cms/jxl_cms.cc",
     ],
     static_libs: [
-        // TODO: Enable in main when these are available
-        // "libhwy",
-        // "libbrotli",
+        "libhwy",
+        "libbrotli",
     ],
     whole_static_libs: [
-        // TODO: Enable when merged to main & skia gn_to_bp.py update merges
-        // "libskia_skcms",
+        "libskia_skcms",
     ],
     visibility: [
         ":__subpackages__",
